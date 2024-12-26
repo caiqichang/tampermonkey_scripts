@@ -1,11 +1,10 @@
 // ==UserScript==
-// @name         eruda
+// @name         add_vconsole
 // @namespace    http://tampermonkey.net/
 // @version      2024-12-25
-// @description  try to take over the world!
-// @author       You
+// @description  add vconsole
+// @author       caiqichang
 // @match        *://*/*
-// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
 // @run-at       documen-start
 // ==/UserScript==
@@ -14,12 +13,14 @@
     'use strict';
 
     // Your code here...
-    fetch("https://cdn.jsdelivr.net/npm/eruda")
+    fetch("https://unpkg.com/vconsole@latest/dist/vconsole.min.js")
         .then(i => i.text())
         .then(i => {
             let script = document.createElement("script")
             script.innerText = i
             document.body.appendChild(script)
-            eruda.init()
+
+            // eslint-disable-next-line
+            new window.VConsole()
         })
 })();
