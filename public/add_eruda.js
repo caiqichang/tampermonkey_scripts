@@ -1,29 +1,33 @@
 // ==UserScript==
-// @name         add_eruda
+// @name         add_eurda
 // @namespace    http://tampermonkey.net/
-// @version      2024-12-26_09-33
-// @description  add eruda
+// @version      2024-12-26_09-35
+// @description  add eurda
 // @author       caiqichang
 // @match        *://*/*
-// @grant        none
+// @grant        GM_xmlhttpRequest
+// @grant        GM_addElement
 // @run-at       documen-start
 // ==/UserScript==
 
 (function () {
     'use strict';
 
-    const appendToBody = (tag, content) => {
-        let element = document.createElement(tag)
-        element.innerHTML = content
-        document.body.appendChild(element)
-    }
+    GM_xmlhttpRequest({
+        method: "GET",
+        url: "https://cdn.jsdelivr.net/npm/eruda",
+        onload(response) {
+            GM_addElement("script", {
+                textContent: response.responseText,
+            })
+            GM_addElement("script", {
+                textContent: `
+                    eruda.init()
+                `,
+            })
+        }
+    })
 
-    fetch("https://cdn.jsdelivr.net/npm/eruda")
-        .then(i => i.text())
-        .then(i => {
-            appendToBody("script", i)
-            appendToBody("script", `
-                eruda.init()
-            `)
-        })
+    // todo
+    // - fail to load `data:application/x-font-woff` in CSP
 })();

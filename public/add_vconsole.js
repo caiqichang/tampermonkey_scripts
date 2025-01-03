@@ -5,25 +5,26 @@
 // @description  add vconsole
 // @author       caiqichang
 // @match        *://*/*
-// @grant        none
+// @grant        GM_xmlhttpRequest
+// @grant        GM_addElement
 // @run-at       documen-start
 // ==/UserScript==
 
 (function () {
     'use strict';
-
-    const appendToBody = (tag, content) => {
-        let element = document.createElement(tag)
-        element.innerHTML = content
-        document.body.appendChild(element)
-    }
-
-    fetch("https://unpkg.com/vconsole@latest/dist/vconsole.min.js")
-        .then(i => i.text())
-        .then(i => {
-            appendToBody("script", i)
-            appendToBody("script", `
-                new window.VConsole()
-            `)
-        })
+    
+    GM_xmlhttpRequest({
+        method: "GET",
+        url: "https://unpkg.com/vconsole@latest/dist/vconsole.min.js",
+        onload(response) {
+            GM_addElement("script", {
+                textContent: response.responseText,
+            })
+            GM_addElement("script", {
+                textContent: `
+                    new window.VConsole()
+                `,
+            })
+        }
+    })
 })();
