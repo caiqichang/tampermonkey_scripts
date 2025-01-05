@@ -1,7 +1,9 @@
 // ==UserScript==
 // @name         add_eurda
 // @namespace    http://tampermonkey.net/
-// @version      2024-12-26_09-35
+// @version      2025-01-05_12-05
+// @downloadURL  https://raw.githubusercontent.com/caiqichang/tampermonkey_scripts/refs/heads/master/public/add_eurda.js
+// @updateURL    https://raw.githubusercontent.com/caiqichang/tampermonkey_scripts/refs/heads/master/public/add_eurda.js
 // @description  add eurda
 // @author       caiqichang
 // @match        *://*/*
