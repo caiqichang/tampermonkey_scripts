@@ -28,9 +28,6 @@
             .page-container .content-sec {
                 background: unset;
             }
-            .n_right, .page-container .r-left-sec, .page-container .right-sec {
-                width: 100%;
-            }
         `,
     })
 })();
