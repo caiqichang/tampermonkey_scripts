@@ -12,8 +12,6 @@
 
 (function () {
     'use strict';
-
-    document.querySelector("#SearchMain")?.nextSibling?.remove()
     
     GM_addElement("style", {
         textContent: `
