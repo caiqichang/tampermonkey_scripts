@@ -29,7 +29,8 @@
             [data-za-module=HotSearchWordList],
             .Pc-Business-Card-PcTopFeedBanner,
             .Tabs-item.AppHeader-Tab.Tabs-item--noMeta,
-            [data-za-detail-view-path-module=RightSideBar]
+            [data-za-detail-view-path-module=RightSideBar],
+            .SearchMain+div
             {
                 display: none;
             }
