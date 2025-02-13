@@ -6,7 +6,7 @@
 // @updateURL    https://raw.githubusercontent.com/caiqichang/tampermonkey_scripts/refs/heads/master/public/tieba_optimision.js
 // @description  tieba optimision
 // @author       caiqichang
-// @match        *://tieba.baidu.com/*
+// @match        *://*.tieba.baidu.com/*
 // @grant        GM_addElement
 // ==/UserScript==
 
